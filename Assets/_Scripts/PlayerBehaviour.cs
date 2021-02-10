@@ -17,10 +17,13 @@ public class PlayerBehaviour : MonoBehaviour
     public Vector3 velocity;
     public bool isGrounded;
 
+    public new AudioSource audio;
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        audio = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame - once every 16.6666ms
@@ -49,6 +52,14 @@ public class PlayerBehaviour : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+
+        if (isGrounded == true && move.magnitude != 0 && audio.isPlaying == false)
+        {
+            audio.volume = Random.Range(0.8f, 1);
+            audio.pitch = Random.Range(0.8f, 1.1f);
+            audio.Play();
+        }
+
     }
 
     void OnDrawGizmos()
