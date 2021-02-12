@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
 {
     void OnGUI()
     {
-        if(GUI.Button(new Rect(10, 10, 100, 30), "Start"))
+        if(GUI.Button(new Rect(10, 100, 100, 30), "Start"))
         {
             SceneManager.LoadScene("Main");
         }
