@@ -5,9 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - Weapon
-  - SecondCamera
-  - BulletSpawn
   layers:
   - Default
   - TransparentFX
@@ -15,7 +12,7 @@ TagManager:
   - Ground
   - Water
   - UI
-  - Marker
+  - 
   - 
   - 
   - 
