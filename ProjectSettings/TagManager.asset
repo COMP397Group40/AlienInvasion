@@ -3,24 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Ground
-  - Weapon
-  - SecondCamera
-  - BulletSpawn
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - 
   - Water
   - UI
-  - Marker
-<<<<<<< Updated upstream
-  - enemy
-=======
   - Gun
->>>>>>> Stashed changes
+  - Marker
   - 
   - 
   - 
