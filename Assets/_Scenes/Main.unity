@@ -1038,7 +1038,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 127
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 65c965369c34fac4e8f771a31b78fa6c, type: 2}
   m_TargetDisplay: 0
@@ -3292,7 +3292,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 191
+    m_Bits: 63
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -4601,7 +4601,7 @@ GameObject:
   - component: {fileID: 1289331680}
   - component: {fileID: 1289331679}
   - component: {fileID: 1289331678}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4863,15 +4863,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3832703582346906254, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3832703582438931031, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3832703582474617314, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3832703582600944448, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_RootOrder
@@ -4923,7 +4923,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3832703582600972128, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3832703582600972128, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_IsActive
@@ -4931,19 +4931,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3832703582600972130, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3832703582600972132, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3832703582600972134, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3832703582600972136, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3832703582603237792, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_CastShadows
@@ -4979,7 +4979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3832703582705633601, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
@@ -6593,7 +6593,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1746916712}
   - component: {fileID: 1746916713}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6844,7 +6844,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 64
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -7225,7 +7225,7 @@ GameObject:
   - component: {fileID: 1816677494}
   - component: {fileID: 1816677496}
   - component: {fileID: 1816677495}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: PlayerMarker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8046,7 +8046,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3150aef293f83254cbc28f9ab06afc72, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
