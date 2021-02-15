@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class pauseMenu : MonoBehaviour
 {
     public void PlayGame()
     {
         SceneManager.LoadScene("Main");
     }
-    public void QuitGame() 
+    public void QuitGame()
     {
         Application.Quit();
     }
-    public void OptionMenu() 
+    public void OptionMenu()
     {
         SceneManager.LoadScene("OptionsMenu");
     }

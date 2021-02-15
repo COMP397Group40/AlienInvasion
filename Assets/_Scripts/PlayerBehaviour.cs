@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayerBehaviour : MonoBehaviour
 {
     public CharacterController controller;
+
+    float CurrentFallTime;
+    public float MaxFallTime = 3;
+
+    bool PlayerIsFalling;
 
     public float maxSpeed = 10.0f;
     public float gravity = -30.0f;
@@ -31,6 +38,28 @@ public class PlayerBehaviour : MonoBehaviour
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundRadius, groundMask);
+
+        if (isGrounded == false)
+        {
+            PlayerIsFalling = true;
+            Debug.Log("ded");
+        }
+        else PlayerIsFalling = false;
+
+        if (PlayerIsFalling)
+        {
+            CurrentFallTime += Time.deltaTime;
+        }
+
+        if (CurrentFallTime >= MaxFallTime)
+        {
+            PlayerDeath();
+        }
+
+            if (Input.GetKey("escape"))
+            {
+            SceneManager.LoadScene("PauseMenu");
+            }
 
         if (isGrounded && velocity.y < 0)
         {
@@ -60,6 +89,10 @@ public class PlayerBehaviour : MonoBehaviour
             audio.Play();
         }
 
+    }
+
+    public void PlayerDeath() {
+        SceneManager.LoadScene("GameOver");
     }
 
     void OnDrawGizmos()

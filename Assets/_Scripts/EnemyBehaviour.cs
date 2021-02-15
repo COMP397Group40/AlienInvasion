@@ -8,6 +8,7 @@ public class EnemyBehaviour : MonoBehaviour
     public NavMeshAgent navMeshAgent;
     public Transform player;
     public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,7 @@ public class EnemyBehaviour : MonoBehaviour
         if (c.collider.tag == "Player")
         {
             animator.SetBool("z_attack", true);
+
         }
     }
 
