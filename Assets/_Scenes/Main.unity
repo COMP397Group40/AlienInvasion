@@ -8024,6 +8024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
+  MaxFallTime: 3
   maxSpeed: 10
   gravity: -30
   jumpHeight: 3
