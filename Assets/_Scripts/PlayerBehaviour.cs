@@ -25,6 +25,8 @@ public class PlayerBehaviour : MonoBehaviour
     public bool isGrounded;
 
     public new AudioSource audio;
+    [Header("MiniMap")]
+    public GameObject miniMap;
     // Start is called before the first frame update
     void Start()
     {
@@ -87,6 +89,11 @@ public class PlayerBehaviour : MonoBehaviour
             audio.volume = Random.Range(0.8f, 1);
             audio.pitch = Random.Range(0.8f, 1.1f);
             audio.Play();
+        }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            // toggle the MiniMap on/off
+            miniMap.SetActive(!miniMap.activeInHierarchy);
         }
 
     }
