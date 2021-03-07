@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class WinCondition : MonoBehaviour
 {
-    int kill = 0;
-    public int killstowin = 20;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -18,13 +17,13 @@ public class WinCondition : MonoBehaviour
     {
         
     }
-    public void kills()
+    void OnTriggerEnter(Collider other)
     {
-        kill += 1;
-
-        if(kill >= killstowin)
+        // check if the object that triggers a collision is the player
+        if (other.gameObject.CompareTag("Player"))
         {
             SceneManager.LoadScene("Win");
         }
     }
+
 }
