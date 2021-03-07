@@ -8,12 +8,15 @@ public class EnemyBehaviour : MonoBehaviour
     public NavMeshAgent navMeshAgent;
     public Transform player;
     public Animator animator;
+    public HealthBarScreenSpaceController playerHealth;
 
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         player = GameObject.Find("Player").GetComponent<Transform>();
+        playerHealth = FindObjectOfType<HealthBarScreenSpaceController>();
     }
 
     // Update is called once per frame
@@ -21,15 +24,18 @@ public class EnemyBehaviour : MonoBehaviour
     {
         player = GameObject.Find("Player").GetComponent<Transform>();
         navMeshAgent.SetDestination(player.position);
+
+       
     }
-    
-    void OnCollisionEnter(Collision c)
+    void OnTriggerEnter(Collider other)
     {
-        if (c.collider.tag == "Player")
+        // check if the object that triggers a collision is the player
+        if (other.gameObject.CompareTag("Player"))
         {
-            animator.SetBool("z_attack", true);
+            playerHealth.TakeDamage(10);
 
         }
     }
 
-    }
+
+}

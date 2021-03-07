@@ -8,7 +8,7 @@ public class HandGunFire : MonoBehaviour
     public GameObject flash;
     public new AudioSource audio;
     public bool isFiring;
-    public float damage = 10f;
+    public int damage = 10;
     public float range = 100f;
     public Camera PlayerCamera;
 
@@ -48,9 +48,15 @@ public class HandGunFire : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
             Target target = hit.transform.GetComponent<Target>();
+            HealthBarScreenSpaceController[] healthbar = hit.transform.GetComponentsInChildren<HealthBarScreenSpaceController>();
             if (target != null)
             {
                 target.TakeDamage(damage);
+                foreach(HealthBarScreenSpaceController h in healthbar)
+                {
+                        HealthBarScreenSpaceController bar = h.transform.GetComponent<HealthBarScreenSpaceController>();
+                        bar.TakeDamage(damage);       
+                }
             }
 
         }
