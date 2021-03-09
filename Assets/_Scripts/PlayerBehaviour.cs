@@ -58,10 +58,6 @@ public class PlayerBehaviour : MonoBehaviour
             PlayerDeath();
         }
 
-            if (Input.GetKey("escape"))
-            {
-            SceneManager.LoadScene("PauseMenu");
-            }
 
         if (isGrounded && velocity.y < 0)
         {
