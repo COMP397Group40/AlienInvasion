@@ -8,16 +8,21 @@ public class CameraController : MonoBehaviour
     public float mouseSensitivity = 1000.0f;
     public Transform playerBody;
     private float XRotation = 0.0f;
+    public bool isCursorVisible = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape)) 
+        {
+            isCursorVisible = !isCursorVisible;
+        }
+
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 

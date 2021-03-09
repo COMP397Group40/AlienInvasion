@@ -30,10 +30,12 @@ public class PlayerBehaviour : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         audio = GetComponent<AudioSource>();
-
+        if (pause.isGamePaused) { 
+        }
     }
 
     // Update is called once per frame - once every 16.6666ms
+
 
     void Update()
     {
@@ -56,15 +58,11 @@ public class PlayerBehaviour : MonoBehaviour
             PlayerDeath();
         }
 
-            if (Input.GetKey("escape"))
-            {
-            SceneManager.LoadScene("PauseMenu");
-            }
-
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2.0f;
         }
+
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
