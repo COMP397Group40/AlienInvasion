@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    [Header("Controls")]
+    public Joystick joystick;
+    public float horizontalSensitivity;
+    public float verticalSensitivity;
+
     public CharacterController controller;
 
     float CurrentFallTime;
@@ -24,6 +29,10 @@ public class PlayerBehaviour : MonoBehaviour
     public Vector3 velocity;
     public bool isGrounded;
 
+    [Range(0, 100)]
+    public int health = 100;
+
+    public HealthBarScreenSpaceController healthBar;
     public new AudioSource audio;
     [Header("MiniMap")]
     public GameObject miniMap;
@@ -64,17 +73,19 @@ public class PlayerBehaviour : MonoBehaviour
             velocity.y = -2.0f;
         }
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        //float x = Input.GetAxis("Horizontal");
+        //float z = Input.GetAxis("Vertical");
+        float x = joystick.Horizontal;
+        float z = joystick.Vertical;
 
         Vector3 move = transform.right * x + transform.forward * z;
 
         controller.Move(move * maxSpeed * Time.deltaTime);
 
-        if (Input.GetButton("Jump") && isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2.0f * gravity);
-        }
+        //if (Input.GetButton("Jump") && isGrounded)
+        //{
+        //    velocity.y = Mathf.Sqrt(jumpHeight * -2.0f * gravity);
+        //}
 
         velocity.y += gravity * Time.deltaTime;
 
@@ -86,14 +97,30 @@ public class PlayerBehaviour : MonoBehaviour
             audio.pitch = Random.Range(0.8f, 1.1f);
             audio.Play();
         }
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            // toggle the MiniMap on/off
-            miniMap.SetActive(!miniMap.activeInHierarchy);
-        }
-
+        //if (Input.GetKeyDown(KeyCode.M))
+        //{
+        //    // toggle the MiniMap on/off
+        //    miniMap.SetActive(!miniMap.activeInHierarchy);
+        //}
     }
-
+    void ToggleMinimap()
+    {
+        // toggle the MiniMap on/off
+        miniMap.SetActive(!miniMap.activeInHierarchy);
+    }
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        healthBar.TakeDamage(damage);
+        if (health < 0)
+        {
+            health = 0;
+        }
+    }
+    public void OnMapButtonPressed()
+    {
+        ToggleMinimap();
+    }
     public void PlayerDeath() {
         SceneManager.LoadScene("GameOver");
     }
@@ -103,5 +130,16 @@ public class PlayerBehaviour : MonoBehaviour
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(groundCheck.position, groundRadius);
     }
-
+    void Jump()
+    {
+        velocity.y = Mathf.Sqrt(jumpHeight * -2.0f * gravity);
+        //jumpSound.Play();
+    }
+    public void OnJumpButtonPressed()
+    {
+        if (isGrounded)
+        {
+            Jump();
+        }
+    }
 }
