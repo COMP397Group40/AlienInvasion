@@ -8,19 +8,35 @@ public class PauseMenu : MonoBehaviour
     public bool isPaused;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            isPaused = !isPaused;
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    isPaused = !isPaused;
+        //}
+        //if (isPaused)
+        //{
+        //    ActivateMenu();
+        //} else
+        //{
+        //    DeactivateMenu();
+        //}
+    }
+    void ToggleControlPanel()
+    {
+        isPaused = !isPaused;
+
         if (isPaused)
         {
             ActivateMenu();
-        } else
+        }
+        else
         {
             DeactivateMenu();
         }
     }
-
+    public void OnControlButtonPressed()
+    {
+        ToggleControlPanel();
+    }
     void ActivateMenu()
     {
         Time.timeScale = 0;
@@ -37,4 +53,5 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         isPaused = false;
     }
+
 }
