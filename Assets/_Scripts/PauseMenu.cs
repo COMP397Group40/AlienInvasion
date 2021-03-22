@@ -5,20 +5,13 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI;
-    public bool isPaused;
-    private void Update()
+    public bool isPaused = false;
+    public PlayerBehaviour player;
+    public SceneDataSO sceneData;
+    private void Start()
     {
-        //if (Input.GetKeyDown(KeyCode.Escape))
-        //{
-        //    isPaused = !isPaused;
-        //}
-        //if (isPaused)
-        //{
-        //    ActivateMenu();
-        //} else
-        //{
-        //    DeactivateMenu();
-        //}
+        player = FindObjectOfType<PlayerBehaviour>();
+        pauseMenuUI.SetActive(false);
     }
     void ToggleControlPanel()
     {
@@ -52,6 +45,24 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         pauseMenuUI.SetActive(false);
         isPaused = false;
+    }
+
+    public void OnLoadButtonPressed()
+    {
+        player.controller.enabled = false;
+        player.transform.position = sceneData.playerPosition;
+        player.transform.rotation = sceneData.playerRotation;
+        player.controller.enabled = true;
+        player.health = sceneData.playerHealth;
+        player.healthBar.SetHealth(sceneData.playerHealth);
+    }
+
+    public void OnSaveButtonPressed()
+    {
+        sceneData.playerPosition = player.transform.position;
+        sceneData.playerHealth = player.health;
+        sceneData.playerRotation = player.transform.rotation;
+        Debug.Log("saved");
     }
 
 }

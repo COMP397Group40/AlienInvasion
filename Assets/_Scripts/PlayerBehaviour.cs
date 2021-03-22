@@ -53,7 +53,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (isGrounded == false)
         {
             PlayerIsFalling = true;
-            Debug.Log("ded");
+            
         }
         else PlayerIsFalling = false;
 
