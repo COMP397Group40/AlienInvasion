@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -13,6 +14,16 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     {
         get { return handleRange; }
         set { handleRange = Mathf.Abs(value); }
+    }
+
+    internal void OnBeginDrag()
+    {
+        throw new NotImplementedException();
+    }
+
+    internal void OnDrag()
+    {
+        throw new NotImplementedException();
     }
 
     public float DeadZone
