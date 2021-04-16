@@ -8,7 +8,7 @@ public class HandGunFire : MonoBehaviour
     public GameObject flash;
     public new AudioSource audio;
     public bool isFiring;
-    public int damage = 10;
+    public int damage = 50;
     public float range = 100f;
     public Camera PlayerCamera;
 
@@ -46,7 +46,6 @@ public class HandGunFire : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(PlayerCamera.transform.position, PlayerCamera.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
             Target target = hit.transform.GetComponent<Target>();
             HealthBarScreenSpaceController[] healthbar = hit.transform.GetComponentsInChildren<HealthBarScreenSpaceController>();
             if (target != null)

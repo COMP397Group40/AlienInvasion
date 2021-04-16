@@ -20,5 +20,7 @@ public class Target : MonoBehaviour
     void Die()
     {
         Destroy(transform.parent.gameObject, 1);
+        GlobalAchievements.achCount += 1;
+        Debug.Log("die");
     }
 }
