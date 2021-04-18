@@ -21,15 +21,15 @@ public class GlobalAchievements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (achCount == 15 && ach01Code != 1234)
+        if (achCount == 5 && ach01Code != 1234)
         {
             StartCoroutine(Trigger01Ach());
         }
-        if (achCount == 25 && ach02Code != 1234)
+        if (achCount == 10 && ach02Code != 1234)
         {
             StartCoroutine(Trigger02Ach());
         }
-        if (achCount == 35 && ach03Code != 1234)
+        if (achCount == 15 && ach03Code != 1234)
         {
             StartCoroutine(Trigger03Ach());
         }
@@ -51,6 +51,7 @@ public class GlobalAchievements : MonoBehaviour
         achTitle.GetComponent<Text>().text = "";
         achDesc.GetComponent<Text>().text = "";
         achActive = false;
+        achNote.SetActive(false);
     }
 
     IEnumerator Trigger02Ach()
@@ -69,6 +70,7 @@ public class GlobalAchievements : MonoBehaviour
         achTitle.GetComponent<Text>().text = "";
         achDesc.GetComponent<Text>().text = "";
         achActive = false;
+        achNote.SetActive(false);
     }
 
     IEnumerator Trigger03Ach()
@@ -87,5 +89,6 @@ public class GlobalAchievements : MonoBehaviour
         achTitle.GetComponent<Text>().text = "";
         achDesc.GetComponent<Text>().text = "";
         achActive = false;
+        achNote.SetActive(false);
     }
 }
